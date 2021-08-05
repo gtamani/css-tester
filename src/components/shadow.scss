@@ -1,0 +1,31 @@
+$main-color:#15acff;
+
+.cursor-square{
+    display:flex;
+    width: 100px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin:2px;
+    background-color: $main-color;
+}
+
+
+.square{
+    width: 100px;
+    height: 100px;
+    background-color: $main-color;
+}
+
+.output{
+    padding:100px;
+    display: flex;
+    justify-content: center;
+}
+
+.flex-container{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
