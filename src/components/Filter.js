@@ -1,92 +1,104 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function Filter () {
-    const [blur, setBlur] = useState(0);
-    const [brightness, setBrightness] = useState(100);
-    const [contrast, setContrast] = useState(100);
-    const [grayScale, setGrayScale] = useState();
-    const [hueRotate, setHueRotate] = useState();
-    const [invert, setInvert] = useState();
-    const [opacity, setOpacity] = useState();
-    const [saturate, setSaturate] = useState();
-    const [sepia, setSepia] = useState();
+    const [vars, setVars] = useState({
+        blur:0,
+        brightness:100,
+        contrast:100,
+        grayScale:0,
+        hueRotate:0,
+        invert:0,
+        opacity:100,
+        saturate:100,
+        sepia:0
+    })
+    
+    const handleChange = (e) => {
+        setVars({
+            ...vars, 
+            [e.target.name]:e.target.value
+        })
+    }
 
     const img = useRef()
 
     useEffect(() => {
-        console.log("blur("+blur+"px)")
-        img.current.style.filter = "blur("+blur+"px) brightness("+brightness+"%) contrast("+contrast+"%)"
-    },[blur,brightness,contrast,grayScale,hueRotate,invert,opacity,saturate,sepia])
+        console.log(`blur(`+vars.blur+`px) brightness(`+vars.brightness+`%) contrast(`+vars.contrast+`%) grayscale(`+vars.grayScale+`%) hue-rotate(`+vars.hueRotate+`deg) opacity(`+vars.opacity+`%) invert(`+vars.invert+`%) saturate(`+vars.saturate+`%) sepia(`+vars.sepia+`%)`)
+        img.current.style.filter = `blur(`+vars.blur+`px) brightness(`+vars.brightness+`%) contrast(`+vars.contrast+`%) grayscale(`+vars.grayScale+`%) hue-rotate(`+vars.hueRotate+`deg) opacity(`+vars.opacity+`%) invert(`+vars.invert+`%) saturate(`+vars.saturate+`%) sepia(`+vars.sepia+`%)`
+    },[vars])
 
     return(
-        <>
-            <h2>Filter</h2>
-            
-            <div> 
+        <div className="grid-container">
+            <div className="settings grid-container">
+                <h2>Filter</h2>
+
+                <div/>
+                {/* Blur effect */} 
                 <label htmlFor="blur">Blur</label>
                 <input type="range" name="blur"
-                min="0" max="50" value={blur}
-                onChange={(e) => setBlur(e.target.value)}/>
-            </div>
+                min="0" max="50" value={vars.blur}
+                onChange={handleChange}/>
             
-            <div> 
+            
+                {/* Brightness */}
                 <label htmlFor="brightness">brightness</label>
                 <input type="range" name="brightness"
-                min="0" max="200" value={brightness}
-                onChange={(e) => setBrightness(e.target.value)}/>
-            </div>
+                min="0" max="200" value={vars.brightness}
+                onChange={handleChange}/>
             
-            <div> 
+            
+                {/* Contrast */}
                 <label htmlFor="contrast">contrast</label>
                 <input type="range" name="contrast"
-                min="0" max="200" value={contrast}
-                onChange={(e) => setContrast(e.target.value)}/>
-            </div>
+                min="0" max="200" value={vars.contrast}
+                onChange={handleChange}/>
             
-            <div> 
+            
+                {/* Grayscale */}
                 <label htmlFor="grayScale">grayScale</label>
                 <input type="range" name="grayScale"
-                min="-100" max="100" value={grayScale}
-                onChange={(e) => setGrayScale(e.target.value)}/>
-            </div>
+                min="0" max="100" value={vars.grayScale}
+                onChange={handleChange}/>
             
-            <div> 
+            
+                {/* Hue Rotate */}
                 <label htmlFor="hueRotate">hueRotate</label>
                 <input type="range" name="hueRotate"
-                min="-100" max="100" value={hueRotate}
-                onChange={(e) => setHueRotate(e.target.value)}/>
-            </div>
+                min="0" max="360" value={vars.hueRotate}
+                onChange={handleChange}/>
             
-            <div> 
+            
+                {/* Opacity */}
                 <label htmlFor="opacity">opacity</label>
                 <input type="range" name="opacity"
-                min="-100" max="100" value={opacity}
-                onChange={(e) => setOpacity(e.target.value)}/>
-            </div>
+                min="0" max="100" value={vars.opacity}
+                onChange={handleChange}/>
             
-            <div> 
+            
+                {/* Invert */}
                 <label htmlFor="invert">invert</label>
                 <input type="range" name="invert"
-                min="-100" max="100" value={invert}
-                onChange={(e) => setInvert(e.target.value)}/>
-            </div>
+                min="0" max="100" value={vars.invert}
+                onChange={handleChange}/>
             
-            <div> 
+            
+                {/* Saturate */}
                 <label htmlFor="saturate">saturate</label>
                 <input type="range" name="saturate"
-                min="-100" max="100" value={saturate}
-                onChange={(e) => setSaturate(e.target.value)}/>
-            </div>
+                min="0" max="500" value={vars.saturate}
+                onChange={handleChange}/>
             
-            <div> 
+            
+                {/* Sepia */}
                 <label htmlFor="sepia">sepia</label>
                 <input type="range" name="sepia"
-                min="-100" max="100" value={sepia}
-                onChange={(e) => setSepia(e.target.value)}/>
+                min="0" max="100" value={vars.sepia}
+                onChange={handleChange}/>
             </div>
-            
-            <img ref={img} src="https://i.pinimg.com/736x/2a/d6/1e/2ad61e44d13788dc5aa832ed2390cf8c.jpg" alt="drums"/>
 
-        </>
+            <div className="centered">
+                <img ref={img} src="https://i.pinimg.com/736x/2a/d6/1e/2ad61e44d13788dc5aa832ed2390cf8c.jpg" alt="drums"/>
+            </div>
+        </div>
     )
 }

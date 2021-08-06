@@ -1,5 +1,16 @@
 $main-color:#15acff;
 
+.grid-container{
+    display:grid;
+    background-color:azure;
+    grid-template-columns: auto auto;
+    padding: 20px 0
+}
+
+.settings{
+    width:40vw;
+}
+
 .cursor-square{
     display:flex;
     width: 100px;
@@ -13,8 +24,8 @@ $main-color:#15acff;
 
 
 .square{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: $main-color;
 }
 
@@ -28,4 +39,5 @@ $main-color:#15acff;
     display:flex;
     justify-content: center;
     flex-wrap: wrap;
+    
 }

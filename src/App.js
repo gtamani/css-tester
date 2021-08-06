@@ -3,14 +3,18 @@ import './App.css';
 import Shadow from './components/Shadow';
 import Cursor from './components/Cursor';
 import Filter from './components/Filter';
+import Borders from './components/Borders';
+import Gradient from './components/Gradient';
 
 function App() {
   return (
     <div className="App">
       
       <Shadow/>
-      <Cursor/>
+      <Borders/>
+      <Gradient/>
       <Filter/>
+      <Cursor/>
     </div>
   );
 }
