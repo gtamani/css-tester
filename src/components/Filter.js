@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import InputRange from '../hooks/useInputRange';
 
 export default function Filter () {
     const [vars, setVars] = useState({
@@ -23,78 +24,34 @@ export default function Filter () {
     const img = useRef()
 
     useEffect(() => {
-        console.log(`blur(`+vars.blur+`px) brightness(`+vars.brightness+`%) contrast(`+vars.contrast+`%) grayscale(`+vars.grayScale+`%) hue-rotate(`+vars.hueRotate+`deg) opacity(`+vars.opacity+`%) invert(`+vars.invert+`%) saturate(`+vars.saturate+`%) sepia(`+vars.sepia+`%)`)
-        img.current.style.filter = `blur(`+vars.blur+`px) brightness(`+vars.brightness+`%) contrast(`+vars.contrast+`%) grayscale(`+vars.grayScale+`%) hue-rotate(`+vars.hueRotate+`deg) opacity(`+vars.opacity+`%) invert(`+vars.invert+`%) saturate(`+vars.saturate+`%) sepia(`+vars.sepia+`%)`
+        console.log(vars)
+        img.current.style.filter = `
+        blur(`+vars.blur+`px) 
+        brightness(`+vars.brightness+`%) 
+        contrast(`+vars.contrast+`%) 
+        grayscale(`+vars.grayScale+`%) 
+        hue-rotate(`+vars.hueRotate+`deg) 
+        opacity(`+vars.opacity+`%) 
+        invert(`+vars.invert+`%) 
+        saturate(`+vars.saturate+`%) 
+        sepia(`+vars.sepia+`%)`
     },[vars])
 
     return(
         <div className="grid-container">
             <div className="settings grid-container">
                 <h2>Filter</h2>
-
                 <div/>
-                {/* Blur effect */} 
-                <label htmlFor="blur">Blur</label>
-                <input type="range" name="blur"
-                min="0" max="50" value={vars.blur}
-                onChange={handleChange}/>
-            
-            
-                {/* Brightness */}
-                <label htmlFor="brightness">brightness</label>
-                <input type="range" name="brightness"
-                min="0" max="200" value={vars.brightness}
-                onChange={handleChange}/>
-            
-            
-                {/* Contrast */}
-                <label htmlFor="contrast">contrast</label>
-                <input type="range" name="contrast"
-                min="0" max="200" value={vars.contrast}
-                onChange={handleChange}/>
-            
-            
-                {/* Grayscale */}
-                <label htmlFor="grayScale">grayScale</label>
-                <input type="range" name="grayScale"
-                min="0" max="100" value={vars.grayScale}
-                onChange={handleChange}/>
-            
-            
-                {/* Hue Rotate */}
-                <label htmlFor="hueRotate">hueRotate</label>
-                <input type="range" name="hueRotate"
-                min="0" max="360" value={vars.hueRotate}
-                onChange={handleChange}/>
-            
-            
-                {/* Opacity */}
-                <label htmlFor="opacity">opacity</label>
-                <input type="range" name="opacity"
-                min="0" max="100" value={vars.opacity}
-                onChange={handleChange}/>
-            
-            
-                {/* Invert */}
-                <label htmlFor="invert">invert</label>
-                <input type="range" name="invert"
-                min="0" max="100" value={vars.invert}
-                onChange={handleChange}/>
-            
-            
-                {/* Saturate */}
-                <label htmlFor="saturate">saturate</label>
-                <input type="range" name="saturate"
-                min="0" max="500" value={vars.saturate}
-                onChange={handleChange}/>
-            
-            
-                {/* Sepia */}
-                <label htmlFor="sepia">sepia</label>
-                <input type="range" name="sepia"
-                min="0" max="100" value={vars.sepia}
-                onChange={handleChange}/>
-            </div>
+                    <InputRange name="blur" range={[0,50]} var={vars.blur} handler={handleChange}/>
+                    <InputRange name="brightness" range={[0,200]} var={vars.brightness} handler={handleChange}/>
+                    <InputRange name="contrast" range={[0,200]} var={vars.contrast} handler={handleChange}/>
+                    <InputRange name="grayScale" range={[0,100]} var={vars.grayScale} handler={handleChange}/>
+                    <InputRange name="hueRotate" range={[0,360]} var={vars.hueRotate} handler={handleChange}/>
+                    <InputRange name="opacity" range={[0,100]} var={vars.opacity} handler={handleChange}/>
+                    <InputRange name="invert" range={[0,100]} var={vars.invert} handler={handleChange}/>
+                    <InputRange name="saturate" range={[0,500]} var={vars.saturate} handler={handleChange}/>
+                    <InputRange name="sepia" range={[0,100]} var={vars.sepia} handler={handleChange}/>
+                </div>
 
             <div className="centered">
                 <img ref={img} src="https://i.pinimg.com/736x/2a/d6/1e/2ad61e44d13788dc5aa832ed2390cf8c.jpg" alt="drums"/>

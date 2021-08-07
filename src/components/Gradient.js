@@ -7,7 +7,8 @@ export default function Gradient () {
         direction:"to bottom",
         gradient:"linear-gradient",
         fromColor:"#15acff",
-        toColor:"#4C547B"
+        toColor:"#4C547B",
+        new:3,
     }),
     { gradientOptions } = cssTypes,
     { directionOptions } = cssTypes;
@@ -36,7 +37,6 @@ export default function Gradient () {
             <div className="settings grid-container">
                 <h2>Gradient</h2><br/>
                 
-
                 <label htmlFor="gradient">Gradient type</label>
                 <select
                 name = "gradient" value={vars.gradient}

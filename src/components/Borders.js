@@ -1,37 +1,44 @@
 import React, { useState, useEffect, useRef } from 'react';
 import cssTypes from '../helpers/Types';
+import InputRange from '../hooks/useInputRange';
 
 export default function Borders () {
-    const [width, setWidth] = useState(5),
-    [type, setType] = useState("solid"),
-    [color, setColor] = useState("#4C547B"),
-    [radius, setRadius] = useState(24);
-    
-    const square = useRef();
-    const { borderTypes } = cssTypes
+    const [vars, setVars] = useState({
+        type:"solid",
+        width:5,
+        color:"#4C547B",
+        radius:24
+    }),
+    square = useRef(),
+    { borderTypes } = cssTypes
 
     useEffect(() => {
-        square.current.style.border = width+"px "+type+" "+color
-        square.current.style.borderRadius = radius+"%"
-    }, [width,type,color,radius]);
+        square.current.style.border = `${vars.width}px ${vars.type} ${vars.color}`
+        square.current.style.borderRadius = vars.radius+"%"
+    }, [vars]);
+
+    const handleChange = (e) => {
+        setVars({
+            ...vars, 
+            [e.target.name]:e.target.value
+        })
+    }
 
     return(
         <div className="grid-container">
             <div className="settings grid-container">
                 <h2>Borders</h2>
                 <div/>
-                    {/* Border width */}
-                    <label htmlFor="width">width</label>
-                    <input type="range" name="width"
-                    min="1" max="50" value={width}
-                    onChange={(e) => setWidth(e.target.value)}/>
+
+                    <InputRange name="width" range={[1,50]} var={vars.width} handler={handleChange}/>
+
                 
                     {/* Border type */}
                     <label htmlFor="type">type</label>
                     <select
                     name = "type" 
-                    value={type}
-                    onChange={(e) => setType(e.target.value)}
+                    value={vars.type}
+                    onChange={handleChange}
                     >
                     {borderTypes.map((e) => <option>{e}</option>)}
                     </select>
@@ -40,15 +47,12 @@ export default function Borders () {
                     <label htmlFor="color">Color</label>
                     <input 
                     type="color" name="color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
+                    value={vars.color}
+                    onChange={handleChange}
                     />
 
-                    {/* Border radius */}
-                    <label htmlFor="radius">radius</label>
-                    <input type="range" name="radius"
-                    min="1" max="50" value={radius}
-                    onChange={(e) => setRadius(e.target.value)}/>
+                    <InputRange name="radius" range={[1,50]} var={vars.radius} handler={handleChange}/>
+
                 
             </div>
             <div className="output">

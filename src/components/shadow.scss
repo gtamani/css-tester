@@ -1,10 +1,45 @@
 $main-color:#15acff;
 
+// VARIABLES
+// Nesting de querys
+// Nesting de atributos css
+/*
+text{
+    decoration:none;
+    transform:uppercase;
+    align:center
+}
+
+// PARTIALS - fragmentar código
+el archivo: _partials.scss
+
+y después:
+@import "partials";
+
+
+// MIXINS
+Código común para no repetir, incluso parametrizados
+
+@mixin cssCommonCode($color){
+    color:$color
+}
+
+h1{
+    @include cssCommonCode(salmon);
+}
+h2{
+    @include cssCommonCode(blue);
+}
+
+// OPERADORES (/,*,+,-)
+*/
+
 .grid-container{
     display:grid;
     background-color:azure;
     grid-template-columns: auto auto;
-    padding: 20px 0
+    padding: 20px 0;
+    overflow: hidden;
 }
 
 .settings{
@@ -27,6 +62,7 @@ $main-color:#15acff;
     width: 150px;
     height: 150px;
     background-color: $main-color;
+    
 }
 
 .output{
