@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import cssTypes from '../helpers/Types'
+import InputColor from '../hooks/useInputColor';
+import Select from '../hooks/useSelect';
 
 
 export default function Gradient () {
@@ -36,37 +38,12 @@ export default function Gradient () {
         <div className="grid-container">
             <div className="settings grid-container">
                 <h2>Gradient</h2><br/>
-                
-                <label htmlFor="gradient">Gradient type</label>
-                <select
-                name = "gradient" value={vars.gradient}
-                onChange={handleChange}
-                >
-                    {gradientOptions.map((e) => <option key={e}>{e}</option>)}
-                </select>
-
-                <label htmlFor="direction">direction type</label>
-                <select
-                name = "direction" value={vars.direction}
-                onChange={handleChange}
-                >
-                    {directionOptions.map((e) => <option key={e}>{e}</option>)}
-                </select>
-
-                <label htmlFor="fromColor">fromColor</label>
-                <input 
-                type="color" name="fromColor"
-                value={vars.fromColor}
-                onChange={handleChange}
-                />
-
-                <label htmlFor="toColor">toColor</label>
-                <input 
-                type="color" name="toColor"
-                value={vars.toColor}
-                onChange={handleChange}
-                />
-
+                <Select name="gradient" options={gradientOptions} var={vars.gradient} handler={handleChange}/>
+                { vars.gradient !== "linear-gradient" ||
+                    <Select name="direction" options={directionOptions} var={vars.direction} handler={handleChange}/>
+                }
+                <InputColor name="fromColor" var={vars.fromColor} handler={handleChange}/>
+                <InputColor name="toColor" var={vars.toColor} handler={handleChange}/>
             </div>
             <div className="output">
                 <div ref={square} className="square"></div>

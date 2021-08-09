@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import cssTypes from '../helpers/Types';
 import InputRange from '../hooks/useInputRange';
+import Select from '../hooks/useSelect';
+import InputColor from '../hooks/useInputColor';
 
 export default function Borders () {
     const [vars, setVars] = useState({
@@ -31,29 +33,10 @@ export default function Borders () {
                 <div/>
 
                     <InputRange name="width" range={[1,50]} var={vars.width} handler={handleChange}/>
-
-                
-                    {/* Border type */}
-                    <label htmlFor="type">type</label>
-                    <select
-                    name = "type" 
-                    value={vars.type}
-                    onChange={handleChange}
-                    >
-                    {borderTypes.map((e) => <option>{e}</option>)}
-                    </select>
-
-                    {/* Border color */}
-                    <label htmlFor="color">Color</label>
-                    <input 
-                    type="color" name="color"
-                    value={vars.color}
-                    onChange={handleChange}
-                    />
-
+                    <Select name="type" options={borderTypes} var={vars.type} handler={handleChange}/>
+                    <InputColor name="color" var={vars.color} handler={handleChange}/>
                     <InputRange name="radius" range={[1,50]} var={vars.radius} handler={handleChange}/>
 
-                
             </div>
             <div className="output">
                 <div ref={square} className="square"></div>

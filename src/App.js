@@ -6,6 +6,7 @@ import Filter from './components/Filter';
 import Borders from './components/Borders';
 import Gradient from './components/Gradient';
 import Transform from './components/Transform';
+import Fonts from './components/Fonts';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Borders/>
       <Gradient/>
       <Transform/>
+      <Fonts/>
       <Filter/>
       <Cursor/>
     </div>

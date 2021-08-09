@@ -60,7 +60,61 @@ const cssTypes = {
         "groove",
         "ridge",
         "inset",
-        "outset"]
+        "outset"],
+
+    fontFamily : [
+        "Arial",
+        "Calibri",
+        "Courier",
+        "Cursive",
+        "Decorative",
+        "Fantasy",
+        "Georgia",
+        "Impact",
+        "Sans-serif",
+        "Times New Roman",
+        "Verdana"
+    ],
+
+    fontStyle : [
+        "normal",
+        "italic",
+        "oblique",
+    ],
+
+    fontWeight : [
+        "normal",
+        "bold",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+    ],
+
+    textAlign : [
+        "center",
+        "left",
+        "right",
+        "justify"
+    ],
+
+    textTransform : [
+        "none",
+        "uppercase",
+        "lowercase",
+        "capitalize"
+    ],
+
+    textJustify : [
+        "auto",
+        "inter-word",
+        "inter-character"
+    ]
 }
 
 export default cssTypes;
