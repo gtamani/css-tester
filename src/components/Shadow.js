@@ -3,15 +3,16 @@ import './shadow.scss'
 import InputRange from '../hooks/useInputRange';
 import InputColor from '../hooks/useInputColor';
 
-export default function Shadow () {
 
+
+export default function Shadow () {
     const [vars, setVars] = useState({
         shadowX : 10,
         shadowY : 10,
         blur : 50,
         spread : 10,
         inset : false,
-        color : "black"
+        color : "#000000",
     }),
     square = useRef();
 
@@ -25,7 +26,7 @@ export default function Shadow () {
             ...vars, 
             [e.target.name]:e.target.value
         })
-        console.log(vars)
+        console.log(e)
     }
 
     return(
@@ -57,3 +58,4 @@ export default function Shadow () {
         </div>
     )
 }
+

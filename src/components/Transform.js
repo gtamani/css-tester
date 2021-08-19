@@ -43,7 +43,6 @@ export default function Transform() {
             <div className="settings grid-container">
                 <h2>Transform</h2>
                 <div/>
-                
                     <InputRange name="traslateX" range={[0,100]} var={vars.traslateX} handler={handleChange}/>
                     <InputRange name="traslateY" range={[0,100]} var={vars.traslateY} handler={handleChange}/>
                     <InputRange name="traslateZ" range={[0,100]} var={vars.traslateZ} handler={handleChange}/>
@@ -54,14 +53,9 @@ export default function Transform() {
                     <InputRange name="skewY" range={[0,360]} var={vars.skewY} handler={handleChange}/>
                     <InputRange name="scaleX" range={[0.5,2,0.05]} var={vars.scaleX} handler={handleChange}/>
                     <InputRange name="scaleY" range={[0.5,2,0.05]} var={vars.scaleY} handler={handleChange}/>
-
-
-
-        
-
             </div>
             <div className="output" style={{"perspective":"500px"}}>
-            <div ref={square} className="square"></div>
+                <div ref={square} className="square"></div>
             </div>
         </div>
     )

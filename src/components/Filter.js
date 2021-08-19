@@ -54,7 +54,7 @@ export default function Filter () {
                 </div>
 
             <div className="centered">
-                <img ref={img} src="https://i.pinimg.com/736x/2a/d6/1e/2ad61e44d13788dc5aa832ed2390cf8c.jpg" alt="drums"/>
+                <img className="img-container img-object-fit" ref={img} src="https://i.pinimg.com/736x/2a/d6/1e/2ad61e44d13788dc5aa832ed2390cf8c.jpg" alt="drums"/>
             </div>
         </div>
     )

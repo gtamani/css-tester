@@ -1,19 +1,31 @@
+import TesterButton from "./useTesterButton"
 
 export default function InputRange (props) {
-    /* 
+/* 
     RANGE INPUT WITH THEIR LABEL.
     Props:
     1. name - string
     2. range - list[from:to]
     3. var - variable which value will be updated
     4. handler - update function
-    */
+*/
+    const test = () => {
+        console.log("Hi!")
+        console.log(props.range);
+        console.log(typeof props.var);
+        
+        
+    }
+
 
     return(
         <>
-            <label 
-            htmlFor={props.name}
-            >{props.name}</label>
+            <div>
+                <button onClick={test}>Test it!</button>
+                <label 
+                htmlFor={props.name}
+                >{props.name}</label>
+            </div>
 
             <input 
             type="range" 

@@ -1,4 +1,5 @@
 $main-color:#15acff;
+$main-color-low:#15acff20;
 
 // VARIABLES
 // Nesting de querys
@@ -78,4 +79,65 @@ h2{
     padding: 0 4vw;
     flex-wrap: wrap;
     
+}
+
+.img-container{
+    background-color: rgba(0, 0, 0, 0.151);
+    border-radius:20px;
+}
+
+.img-object-fit{
+    width:600px;
+    height:300px;
+    border-radius:20px;
+}
+
+.display-container{
+    
+    height: 500px;
+    margin: 50px;
+    background-color: $main-color-low;
+    resize:both;
+    overflow: auto;
+}
+
+.element-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100px;
+    height:100px;
+    background-color: $main-color;
+    margin:1px;
+    border-radius:3px;
+    font-weight:bold;
+}
+
+.element-grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $main-color;
+    margin:1px;
+}
+
+.element-grid:hover,
+.element-flex:hover {
+    background-color: $main-color-low;
+    transition:0.5s;
+}
+
+.display-flex{
+    display:flex;
+    width:500px;
+    flex-direction: row;
+    flex-wrap:wrap;
+
+
+}
+
+.display-grid{
+    display:grid;
+    width:500px;
+    grid-template-columns: 1fr 3fr 3fr;
 }

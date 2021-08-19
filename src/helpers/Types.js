@@ -114,7 +114,61 @@ const cssTypes = {
         "auto",
         "inter-word",
         "inter-character"
+    ],
+
+    objectFit : [
+        "fill",
+        "contain",
+        "cover",
+        "scale-down"
+    ],
+
+    display: [
+        "block",
+        "inline",
+        "flex",
+        "grid",
+    ],
+
+    flexDirection: [
+        "row",
+        "row-reverse",
+        "column",
+        "column-reverse"
+    ],
+
+    justifyContent: [
+        "start",
+        "center",
+        "end",
+        "space-between",
+        "space-around",
+        "space-evenly",
+    ],
+
+    alignContent : [
+        "start",
+        "center",
+        "end",
+        "space-between",
+        "space-around",
+        "space-evenly",
+        "baseline"
+    ] , 
+    alignItems : [
+        "stretch",
+        "center",
+        "start",
+        "end"
+
+    ],
+
+    flexWrap : [
+        "nowrap",
+        "wrap",
+        "wrap-reverse"
     ]
+
 }
 
 export default cssTypes;

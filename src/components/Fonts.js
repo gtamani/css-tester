@@ -8,7 +8,9 @@ export default function Fonts () {
         fontFamily:"Courier New",
         fontSize:20,
         textIndent:10,
-        textAlign : "justify"
+        textAlign : "justify",
+        lineHeight : 1.3,
+        letterSpace: 1
 
     }),
     { fontFamily, fontStyle, fontWeight, textTransform, textAlign, textJustify } = cssTypes,
@@ -33,7 +35,10 @@ export default function Fonts () {
         text-indent: ${vars.textIndent}px;
         text-transform: ${vars.textTransform};
         text-align: ${vars.textAlign};
-        text-justify: ${vars.textJustify}`
+        text-justify: ${vars.textJustify};
+        letter-spacing: ${vars.letterSpace}px;
+        line-height: ${vars.lineHeight};
+        word-spacing: ${vars.wordSpacing}px;`
         
     }, [vars]);
 
@@ -51,6 +56,9 @@ export default function Fonts () {
                 <div/><br/>
 
                 <InputRange name="textIndent" range={[0,20]} var={vars.textIndent} handler={handleChange}/>
+                <InputRange name="letterSpace" range={[0,20,0.5]} var={vars.letterSpace} handler={handleChange}/>
+                <InputRange name="lineHeight" range={[0,5,0.2]} var={vars.lineHeight} handler={handleChange}/>
+                <InputRange name="wordSpacing" range={[0,20]} var={vars.wordSpacing} handler={handleChange}/>
                 <Select name="textTransform" options={textTransform} var={vars.textTransform} handler={handleChange}/>
                 <Select name="textAlign" options={textAlign} var={vars.textAlign} handler={handleChange}/>
 

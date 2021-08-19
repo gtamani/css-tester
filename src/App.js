@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Shadow from './components/Shadow';
 import Cursor from './components/Cursor';
@@ -7,6 +6,8 @@ import Borders from './components/Borders';
 import Gradient from './components/Gradient';
 import Transform from './components/Transform';
 import Fonts from './components/Fonts';
+import ObjectFit from './components/ObjectFit';
+import Display from './components/Display';
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
       <Transform/>
       <Fonts/>
       <Filter/>
+      <ObjectFit/>
       <Cursor/>
+      <Display/>
     </div>
   );
 }
